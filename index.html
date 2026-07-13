@@ -903,41 +903,89 @@
       <!-- PHOTOS -->
       <section id="photos">
         <div class="card">
-          <p class="section-tag">team snapshots</p>
+          <p class="section-tag">photo albums</p>
           <h2>moments worth remembering 📸</h2>
-          <p class="desc">swipe through — favorites from the journey so far.</p>
-          <div class="polaroid-scroll" id="photoGrid">
-            <div class="polaroid" data-index="0">
-              <div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div>
-              <p class="polaroid-caption">team</p>
-              <input type="file" accept="image/*" aria-label="Photo 1">
-            </div>
-            <div class="polaroid" data-index="1">
-              <div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div>
-              <p class="polaroid-caption">favorites</p>
-              <input type="file" accept="image/*" aria-label="Photo 2">
-            </div>
-            <div class="polaroid" data-index="2">
-              <div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div>
-              <p class="polaroid-caption">core moment</p>
-              <input type="file" accept="image/*" aria-label="Photo 3">
-            </div>
-            <div class="polaroid" data-index="3">
-              <div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div>
-              <p class="polaroid-caption">always</p>
-              <input type="file" accept="image/*" aria-label="Photo 4">
-            </div>
-            <div class="polaroid" data-index="4">
-              <div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div>
-              <p class="polaroid-caption">you &amp; the team</p>
-              <input type="file" accept="image/*" aria-label="Photo 5">
-            </div>
-            <div class="polaroid" data-index="5">
-              <div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div>
-              <p class="polaroid-caption">15 vibes</p>
-              <input type="file" accept="image/*" aria-label="Photo 6">
+          
+          <!-- Album Tabs -->
+          <div style="display: flex; gap: 0.75rem; margin-bottom: 1.5rem; flex-wrap: wrap; justify-content: center;">
+            <button class="album-tab active" data-album="memorable" style="padding: 0.5rem 1rem; border: 2px solid #ff4aae; background: rgba(255, 74, 174, 0.2); color: #ffb7d8; border-radius: 20px; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.3s;">💫 Memorable</button>
+            <button class="album-tab" data-album="audrey" style="padding: 0.5rem 1rem; border: 2px solid rgba(255, 74, 174, 0.4); background: transparent; color: #ffb7d8; border-radius: 20px; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.3s;">👑 Her Story</button>
+          </div>
+
+          <!-- Album 1: Memorable -->
+          <div class="photo-album active" data-album="memorable">
+            <p class="desc">swipe through — favorite moments worth treasuring.</p>
+            <div class="polaroid-scroll" id="photoGrid-memorable">
+              <div class="polaroid" data-index="0" data-album="memorable">
+                <div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div>
+                <input type="file" accept="image/*" aria-label="Memorable Photo 1">
+              </div>
+              <div class="polaroid" data-index="1" data-album="memorable">
+                <div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div>
+                <input type="file" accept="image/*" aria-label="Memorable Photo 2">
+              </div>
+              <div class="polaroid" data-index="2" data-album="memorable">
+                <div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div>
+                <input type="file" accept="image/*" aria-label="Memorable Photo 3">
+              </div>
+              <div class="polaroid" data-index="3" data-album="memorable">
+                <div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div>
+                <input type="file" accept="image/*" aria-label="Memorable Photo 4">
+              </div>
+              <div class="polaroid" data-index="4" data-album="memorable">
+                <div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div>
+                <input type="file" accept="image/*" aria-label="Memorable Photo 5">
+              </div>
             </div>
           </div>
+
+          <!-- Album 2: Audrey & You & Me (40 photos) -->
+          <div class="photo-album" data-album="audrey" style="display: none;">
+            <p class="desc">her moments & your moments together — the full story in 40 pics.</p>
+            <div class="polaroid-scroll" id="photoGrid-audrey">
+              <div class="polaroid" data-index="0" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 1"></div>
+              <div class="polaroid" data-index="1" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 2"></div>
+              <div class="polaroid" data-index="2" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 3"></div>
+              <div class="polaroid" data-index="3" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 4"></div>
+              <div class="polaroid" data-index="4" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 5"></div>
+              <div class="polaroid" data-index="5" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 6"></div>
+              <div class="polaroid" data-index="6" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 7"></div>
+              <div class="polaroid" data-index="7" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 8"></div>
+              <div class="polaroid" data-index="8" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 9"></div>
+              <div class="polaroid" data-index="9" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 10"></div>
+              <div class="polaroid" data-index="10" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 11"></div>
+              <div class="polaroid" data-index="11" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 12"></div>
+              <div class="polaroid" data-index="12" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 13"></div>
+              <div class="polaroid" data-index="13" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 14"></div>
+              <div class="polaroid" data-index="14" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 15"></div>
+              <div class="polaroid" data-index="15" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 16"></div>
+              <div class="polaroid" data-index="16" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 17"></div>
+              <div class="polaroid" data-index="17" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 18"></div>
+              <div class="polaroid" data-index="18" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 19"></div>
+              <div class="polaroid" data-index="19" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 20"></div>
+              <div class="polaroid" data-index="20" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 21"></div>
+              <div class="polaroid" data-index="21" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 22"></div>
+              <div class="polaroid" data-index="22" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 23"></div>
+              <div class="polaroid" data-index="23" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 24"></div>
+              <div class="polaroid" data-index="24" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 25"></div>
+              <div class="polaroid" data-index="25" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 26"></div>
+              <div class="polaroid" data-index="26" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 27"></div>
+              <div class="polaroid" data-index="27" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 28"></div>
+              <div class="polaroid" data-index="28" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 29"></div>
+              <div class="polaroid" data-index="29" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 30"></div>
+              <div class="polaroid" data-index="30" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 31"></div>
+              <div class="polaroid" data-index="31" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 32"></div>
+              <div class="polaroid" data-index="32" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 33"></div>
+              <div class="polaroid" data-index="33" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 34"></div>
+              <div class="polaroid" data-index="34" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 35"></div>
+              <div class="polaroid" data-index="35" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 36"></div>
+              <div class="polaroid" data-index="36" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 37"></div>
+              <div class="polaroid" data-index="37" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 38"></div>
+              <div class="polaroid" data-index="38" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 39"></div>
+              <div class="polaroid" data-index="39" data-album="audrey"><div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div><input type="file" accept="image/*" aria-label="Photo 40"></div>
+            </div>
+          </div>
+
           <p class="scroll-hint-photos">← swipe →</p>
           <p class="setup-note">tap each polaroid to upload a photo in setup mode</p>
         </div>
@@ -1178,14 +1226,104 @@
       });
     }
 
+    // Photo album tabs
+    document.querySelectorAll('.album-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const album = tab.dataset.album;
+        
+        // Hide all albums
+        document.querySelectorAll('.photo-album').forEach(a => a.style.display = 'none');
+        // Show selected album
+        document.querySelector(`[data-album="${album}"].photo-album`).style.display = 'block';
+        
+        // Update tab styling
+        document.querySelectorAll('.album-tab').forEach(t => {
+          t.style.background = 'transparent';
+          t.style.borderColor = 'rgba(255, 74, 174, 0.4)';
+        });
+        tab.style.background = 'rgba(255, 74, 174, 0.2)';
+        tab.style.borderColor = '#ff4aae';
+      });
+    });
+
+    // Auto-load photos from folder
+    const memorialbleFiles = [
+      'memorable (1).jpg',
+      'memorable (2).jpg',
+      'memorable (3).jpg',
+      'memorable (4).jpg',
+      'memorable (5).jpg'
+    ];
+    
+    const herStoryFiles = [
+      '0bb71634-9b20-4bf2-adf6-6d473d59f6f8.jpg',
+      '0cbd6f8a-07af-4806-8eb3-db78f821c4a2.jpg',
+      '14907e0d-ddb7-4b91-9d6d-861414b47875.jpg',
+      '1521b776-e1d4-4293-b7b9-aa260aa89950.jpg',
+      '18e102fd-88e3-4484-982a-7217996292fc.jpg',
+      '19611acb-85eb-429d-82ee-fc5cd75769e4.jpg',
+      '298491d4-736d-4a62-a1f7-03253a262b81.jpg',
+      '3bcebaef-9212-421b-bc01-2c873af18ca2.jpg',
+      '4d57cf1f-b29c-4734-b258-43e7a5224f57.jpg',
+      '56677ed0-c6c9-4862-b7df-0979819b9364.jpg',
+      '5cf90d69-d586-4d92-99f2-fea6eb421bc2.jpg',
+      '5ebcae98-84de-4c30-b839-0c1fbb6868fe.jpg',
+      '6bd624ca-ecf7-49b0-be83-b22c2f053b64.jpg',
+      '6cf5be05-3032-4f2e-9b8f-4743e7a23173.jpg',
+      '71a7fee8-998b-4ad8-9bf2-a2dd58691cdc.jpg',
+      '7a16b5e1-41b5-444d-b88d-a26e0240e83b.jpg',
+      '848a04b7-37de-41bb-9cce-59ce205aa35a.jpg',
+      '92dfab85-1042-4c3f-952a-498d9c5be607.jpg',
+      '96bf97c7-8228-4fc5-9551-7d9d9c3fd541.jpg',
+      'b759b5d4-b35f-4382-bffd-ba97361cd582.jpg',
+      'bd459387-969d-44f2-a543-5f861587fbea.jpg',
+      'ce07d658-c84c-42f0-a302-e41f91fa8fb0.jpg',
+      'd228fd93-867c-4a16-bd6b-ac1df7341581.jpg',
+      'd5698a5c-6e08-4f97-a4c6-dabc8a2e2a87.jpg',
+      'df89b759-5cbd-4b58-9666-6aff6a262504.jpg',
+      'df9d725f-d536-4333-a1c1-6877183d10a6.jpg',
+      'e1aa862c-5d82-4ef2-894b-eeb768d1da74.jpg',
+      'eb22efdf-bfd6-4d63-a4bf-0809852622db.jpg',
+      'f6fc3c88-fa3f-4323-8e59-2cc153317a41.jpg'
+    ];
+
+    function loadPhotosFromFolder() {
+      // Load memorable photos
+      memorialbleFiles.forEach((filename, idx) => {
+        const img = document.querySelector(`[data-album="memorable"][data-index="${idx}"] img`);
+        if (img) {
+          img.src = `photos/${filename}`;
+          img.hidden = false;
+          const ph = document.querySelector(`[data-album="memorable"][data-index="${idx}"] .ph-placeholder`);
+          if (ph) ph.style.display = 'none';
+        }
+      });
+      
+      // Load Her Story photos
+      herStoryFiles.forEach((filename, idx) => {
+        const img = document.querySelector(`[data-album="audrey"][data-index="${idx}"] img`);
+        if (img) {
+          img.src = `photos/${filename}`;
+          img.hidden = false;
+          const ph = document.querySelector(`[data-album="audrey"][data-index="${idx}"] .ph-placeholder`);
+          if (ph) ph.style.display = 'none';
+        }
+      });
+    }
+
+    // Load photos on page load
+    window.addEventListener('load', loadPhotosFromFolder);
+
     function renderPhotos() {
       const photos = loadPhotos();
       document.querySelectorAll('.polaroid').forEach((p) => {
         const idx = p.dataset.index;
+        const album = p.dataset.album;
+        const photoKey = album ? `${album}_${idx}` : idx;
         const img = p.querySelector('img');
         const ph = p.querySelector('.ph-placeholder');
-        if (photos[idx]) {
-          img.src = photos[idx];
+        if (photos[photoKey]) {
+          img.src = photos[photoKey];
           img.hidden = false;
           if (ph) ph.style.display = 'none';
           p.classList.add('has-image');
@@ -1241,7 +1379,11 @@
         const reader = new FileReader();
         reader.onload = (ev) => {
           const photos = loadPhotos();
-          photos[input.closest('.polaroid').dataset.index] = ev.target.result;
+          const polaroid = input.closest('.polaroid');
+          const idx = polaroid.dataset.index;
+          const album = polaroid.dataset.album;
+          const photoKey = album ? `${album}_${idx}` : idx;
+          photos[photoKey] = ev.target.result;
           localStorage.setItem(STORAGE_PHOTOS, JSON.stringify(photos));
           renderPhotos();
         };
