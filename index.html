@@ -137,6 +137,21 @@
       width: 100%; max-width: 280px;
     }
 
+    @media (max-width: 600px) {
+      .keypad {
+        gap: 0.8rem;
+        max-width: 320px;
+      }
+      
+      .key {
+        max-height: 85px;
+      }
+      
+      .key-num {
+        font-size: 1.85rem;
+      }
+    }
+
     .key {
       aspect-ratio: 1; max-height: 74px; border: none; border-radius: 50%;
       background: rgba(255,255,255,0.07); color: #fff;
@@ -145,12 +160,13 @@
       transition: background 0.12s, transform 0.1s;
       -webkit-tap-highlight-color: transparent; touch-action: manipulation;
       backdrop-filter: blur(8px);
+      min-width: 50px;
     }
 
     .key:active { background: rgba(255,255,255,0.18); transform: scale(0.92); }
     .key-num { font-size: 1.65rem; font-weight: 300; line-height: 1; }
     .key-sub { font-size: 0.5rem; letter-spacing: 0.12em; color: rgba(255,255,255,0.4); margin-top: 2px; }
-    .key-empty { background: transparent; pointer-events: none; }
+    .key-empty { background: transparent; pointer-events: none; border: none; }
     .key-delete { font-size: 0.8rem; color: var(--muted); }
 
     /* ===== WELCOME SPLASH ===== */
