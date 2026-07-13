@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#1a0828">
   <meta name="description" content="A special birthday celebration for Audrey">
-  <title>for audrey ♡</title>
+  <title>for audrey</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
@@ -13,16 +13,16 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --pink: #ff9ec8;
-      --pink-hot: #ff6bab;
-      --pink-soft: #ffc8e0;
-      --lavender: #c9b8ff;
-      --purple: #7c5cbf;
-      --purple-deep: #2a1440;
-      --bg: #12081f;
-      --card: rgba(255, 255, 255, 0.06);
-      --text: #fff8fc;
-      --muted: rgba(255, 248, 252, 0.6);
+      --pink: #ff4aae;
+      --pink-hot: #ff2b8c;
+      --pink-soft: #ffb7d8;
+      --lavender: #dfa6ff;
+      --purple: #8b3b99;
+      --purple-deep: #2a0c3b;
+      --bg: #180619;
+      --card: rgba(255, 255, 255, 0.1);
+      --text: #fff3fb;
+      --muted: rgba(255, 222, 238, 0.78);
       --safe-t: env(safe-area-inset-top, 0px);
       --safe-b: env(safe-area-inset-bottom, 0px);
       --safe-l: env(safe-area-inset-left, 0px);
@@ -50,9 +50,9 @@
       display: flex; flex-direction: column; align-items: center; justify-content: space-between;
       padding: calc(2.5rem + var(--safe-t)) 1.25rem calc(1.5rem + var(--safe-b));
       background:
-        radial-gradient(ellipse 120% 80% at 50% 0%, rgba(255, 110, 180, 0.25), transparent 55%),
-        radial-gradient(ellipse 80% 60% at 80% 100%, rgba(124, 92, 191, 0.3), transparent),
-        linear-gradient(180deg, #1a0a2e 0%, #0d0618 100%);
+        radial-gradient(ellipse 120% 80% at 50% 0%, rgba(255, 74, 174, 0.3), transparent 55%),
+        radial-gradient(ellipse 80% 60% at 80% 100%, rgba(139, 59, 153, 0.32), transparent),
+        linear-gradient(180deg, #260a2c 0%, #120517 100%);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
@@ -85,13 +85,13 @@
       background: linear-gradient(135deg, var(--pink-hot), var(--purple));
       display: flex; align-items: center; justify-content: center;
       font-size: 2rem;
-      box-shadow: 0 0 30px rgba(255, 107, 171, 0.4);
+      box-shadow: 0 0 30px rgba(255, 74, 174, 0.5);
       animation: pulseGlow 2.5s ease-in-out infinite;
     }
 
     @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 20px rgba(255, 107, 171, 0.35); }
-      50% { box-shadow: 0 0 40px rgba(255, 107, 171, 0.6); }
+      0%, 100% { box-shadow: 0 0 20px rgba(255, 74, 174, 0.35); }
+      50% { box-shadow: 0 0 40px rgba(255, 74, 174, 0.6); }
     }
 
     .lock-title {
@@ -100,6 +100,18 @@
       color: var(--pink-soft);
       text-align: center; line-height: 1.2;
     }
+
+    .lock-flowers {
+      display: flex; gap: 0.5rem; margin-top: 0.15rem;
+    }
+    .lock-flowers span {
+      font-size: 1.3rem;
+      opacity: 0.85;
+      animation: bloom 2.7s ease-in-out infinite;
+    }
+    .lock-flowers span:nth-child(2) { animation-delay: 0.2s; }
+    .lock-flowers span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bloom { 0%,100%{transform:scale(1);opacity:0.8}50%{transform:scale(1.2);opacity:1} }
 
     .lock-hint { font-size: 0.75rem; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
 
@@ -145,7 +157,7 @@
     #welcomeSplash {
       position: fixed; inset: 0; z-index: 1500;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      background: radial-gradient(circle at 50% 40%, rgba(255,110,180,0.2), var(--bg) 70%);
+      background: radial-gradient(circle at 50% 40%, rgba(255,110,180,0.25), var(--bg) 70%);
       opacity: 0; pointer-events: none;
       transition: opacity 0.6s ease;
     }
@@ -169,10 +181,10 @@
     /* ===== SETUP ===== */
     #setupBanner {
       display: none; position: fixed; top: 0; left: 0; right: 0; z-index: 500;
-      background: linear-gradient(90deg, #4a2060, #6b3060);
+      background: linear-gradient(90deg, #d04aa5, #8b3b99);
       padding: calc(0.6rem + var(--safe-t)) 1rem 0.6rem;
       text-align: center; font-size: 0.75rem; color: var(--pink-soft);
-      border-bottom: 1px solid rgba(255,158,200,0.25);
+      border-bottom: 1px solid rgba(255,118,180,0.25);
     }
 
     body.setup-mode #setupBanner { display: block; }
@@ -188,9 +200,9 @@
       animation: orbFloat 20s ease-in-out infinite alternate;
     }
 
-    .bg-orb:nth-child(1) { width: 50vw; height: 50vw; max-width: 320px; background: rgba(255,100,160,0.2); top: -5%; left: -10%; }
-    .bg-orb:nth-child(2) { width: 45vw; height: 45vw; max-width: 280px; background: rgba(124,92,191,0.25); bottom: 5%; right: -8%; animation-delay: -7s; }
-    .bg-orb:nth-child(3) { width: 35vw; height: 35vw; max-width: 200px; background: rgba(255,200,220,0.12); top: 45%; left: 35%; animation-delay: -14s; }
+    .bg-orb:nth-child(1) { width: 50vw; height: 50vw; max-width: 320px; background: rgba(255,100,160,0.22); top: -5%; left: -10%; }
+    .bg-orb:nth-child(2) { width: 45vw; height: 45vw; max-width: 280px; background: rgba(139,59,153,0.24); bottom: 5%; right: -8%; animation-delay: -7s; }
+    .bg-orb:nth-child(3) { width: 35vw; height: 35vw; max-width: 200px; background: rgba(255,170,220,0.16); top: 45%; left: 35%; animation-delay: -14s; }
 
     @keyframes orbFloat { to { transform: translate(25px, -30px) scale(1.1); } }
 
@@ -217,8 +229,8 @@
     /* ===== MARQUEE ===== */
     .marquee-wrap {
       overflow: hidden; width: 100%;
-      background: linear-gradient(90deg, rgba(255,107,171,0.15), rgba(201,184,255,0.15), rgba(255,107,171,0.15));
-      border-block: 1px solid rgba(255,158,200,0.15);
+      background: linear-gradient(90deg, rgba(255,74,174,0.18), rgba(223,166,255,0.15), rgba(255,74,174,0.18));
+      border-block: 1px solid rgba(255,118,180,0.18);
       padding: 0.65rem 0;
       margin-bottom: 0.5rem;
     }
@@ -257,10 +269,24 @@
     @keyframes heroIn { to { opacity: 1; transform: translateY(0); } }
 
     .bouquet-scene {
-      position: relative; height: 160px;
+      position: relative; height: 170px;
       display: flex; align-items: flex-end; justify-content: center;
       margin-bottom: 0.5rem;
     }
+
+    .flower-cluster {
+      position: absolute; top: 8%; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 0.6rem; z-index: 1;
+    }
+    .flower-cluster span {
+      font-size: 1.1rem;
+      color: var(--pink-soft);
+      text-shadow: 0 0 12px rgba(255, 74, 174, 0.25);
+      animation: floatFlower 3s ease-in-out infinite;
+    }
+    .flower-cluster span:nth-child(2) { animation-delay: 0.2s; }
+    .flower-cluster span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes floatFlower { 0%,100%{transform: translateY(0)}50%{transform: translateY(-8px)} }
 
     .bouquet-gift {
       position: relative; z-index: 2;
@@ -285,8 +311,8 @@
     .hero-chip {
       display: inline-block;
       padding: 0.35rem 1rem; border-radius: 999px;
-      background: rgba(255,107,171,0.12);
-      border: 1px solid rgba(255,158,200,0.3);
+      background: rgba(255,74,174,0.14);
+      border: 1px solid rgba(255,118,180,0.25);
       font-size: 0.7rem; font-weight: 500;
       letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--pink); margin-bottom: 1rem;
@@ -591,8 +617,8 @@
     }
 
     .btn:active { transform: scale(0.96); }
-    .btn-pink { background: linear-gradient(135deg, var(--pink-hot), #d44d8a); color: #fff; box-shadow: 0 4px 20px rgba(255,107,171,0.35); }
-    .btn-purple { background: linear-gradient(135deg, #6b4d9a, #4a3070); color: #fff; margin-top: 0.5rem; }
+    .btn-pink { background: linear-gradient(135deg, var(--pink-hot), #ff75bf); color: #fff; box-shadow: 0 4px 20px rgba(255, 74, 174, 0.35); }
+    .btn-purple { background: linear-gradient(135deg, #b850c7, #7a2cc4); color: #fff; margin-top: 0.5rem; }
     .btn.saved { background: linear-gradient(135deg, #3d8a5a, #2d6b45) !important; }
 
     .setup-note {
@@ -621,8 +647,8 @@
     .reason-card {
       aspect-ratio: 1;
       border-radius: 16px;
-      background: linear-gradient(145deg, rgba(255,107,171,0.12), rgba(124,92,191,0.12));
-      border: 1px solid rgba(255,158,200,0.15);
+      background: linear-gradient(145deg, rgba(255,74,174,0.14), rgba(139,59,153,0.12));
+      border: 1px solid rgba(255,118,180,0.18);
       display: flex; align-items: center; justify-content: center;
       text-align: center; padding: 0.75rem;
       font-family: var(--font-hand);
@@ -635,7 +661,7 @@
 
     .reason-card:active, .reason-card.flipped {
       transform: scale(1.05) rotate(-2deg);
-      background: linear-gradient(145deg, rgba(255,107,171,0.25), rgba(124,92,191,0.2));
+      background: linear-gradient(145deg, rgba(255,74,174,0.25), rgba(139,59,153,0.18));
     }
 
     /* ===== MEMORIES ===== */
@@ -644,7 +670,7 @@
     .memory-card {
       padding: 1rem 1.1rem;
       border-radius: 16px;
-      background: rgba(255,255,255,0.03);
+      background: rgba(255,255,255,0.04);
       border-left: 3px solid var(--pink-hot);
       transition: transform 0.3s ease;
     }
@@ -669,8 +695,8 @@
 
     .heart-btn {
       width: 90px; height: 90px; border: none; border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,107,171,0.3), rgba(255,107,171,0.05));
-      border: 1px solid rgba(255,158,200,0.4);
+      background: radial-gradient(circle, rgba(255,74,174,0.32), rgba(255,74,174,0.08));
+      border: 1px solid rgba(255,118,180,0.45);
       cursor: pointer; display: flex; align-items: center; justify-content: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       -webkit-tap-highlight-color: transparent; touch-action: manipulation;
@@ -691,7 +717,7 @@
 
     .heart-pulse {
       position: absolute; inset: -15px; border-radius: 50%;
-      border: 1px solid rgba(255,107,171,0.3);
+      border: 1px solid rgba(255,74,174,0.35);
       animation: heartPulse 2s ease-out infinite;
     }
 
@@ -712,8 +738,8 @@
     #musicBtn {
       position: fixed; bottom: calc(1.25rem + var(--safe-b)); right: calc(1rem + var(--safe-r));
       z-index: 200; width: 48px; height: 48px; border-radius: 50%;
-      border: 1px solid rgba(255,158,200,0.3);
-      background: rgba(18,8,31,0.85);
+      border: 1px solid rgba(255,118,180,0.3);
+      background: rgba(24, 6, 25, 0.88);
       backdrop-filter: blur(12px);
       color: var(--pink); font-size: 1.2rem;
       cursor: pointer; display: none;
@@ -756,7 +782,8 @@
     </div>
     <div class="lock-mid">
       <div class="lock-avatar">🎂</div>
-      <p class="lock-title">a surprise for audrey ♡</p>
+      <p class="lock-title">a surprise for audrey</p>
+      <div class="lock-flowers"><span>💐</span><span>🌸</span><span>✨</span></div>
       <p class="lock-hint">enter passcode</p>
       <div class="passcode-dots" id="passDots"><span></span><span></span><span></span><span></span></div>
       <p class="passcode-error" id="passError">nope — try your birthday 🎂</p>
@@ -780,7 +807,7 @@
 
   <!-- WELCOME SPLASH -->
   <div id="welcomeSplash" aria-hidden="true">
-    <p class="splash-text">made with love<br>for you, audrey ♡</p>
+    <p class="splash-text">celebrating audrey<br>and her 15th birthday</p>
   </div>
 
   <div id="setupBanner">✏️ setup mode — add letters &amp; photos, then share <strong>without</strong> ?setup</div>
@@ -795,16 +822,16 @@
 
     <div class="marquee-wrap" aria-hidden="true">
       <div class="marquee" id="marquee">
-        <span>happy 15th birthday audrey ♡</span>
+        <span>happy 15th, audrey</span>
         <span>july 14 ✦</span>
-        <span>you're literally the best</span>
-        <span>my favorite vp</span>
-        <span>still my favorite person</span>
-        <span>happy 15th birthday audrey ♡</span>
+        <span>maldita kayni sha na tao</span>
+        <span>bigger sore loser na vp</span>
+        <span>lyen is cooler</span>
+        <span>thank you for coming into my life</span>
+        <span>happy 15th, sophiesticated</span>
         <span>july 14 ✦</span>
-        <span>you're literally the best</span>
-        <span>my favorite vp</span>
-        <span>still my favorite person</span>
+        <span>always one call away</span>
+        <span>forever a madame, super scary.</span>
       </div>
     </div>
 
@@ -812,6 +839,7 @@
       <header class="hero" id="hero">
         <div class="bouquet-scene" aria-hidden="true">
           <div class="sparkle-ring"></div>
+          <div class="flower-cluster" aria-hidden="true"><span>✿</span><span>❀</span><span>✧</span></div>
           <svg class="bouquet-gift" width="120" height="150" viewBox="0 0 120 150" xmlns="http://www.w3.org/2000/svg">
             <rect x="25" y="90" width="70" height="55" rx="4" fill="#c75b8a"/>
             <rect x="25" y="90" width="70" height="12" fill="#e88aaa"/>
@@ -828,16 +856,16 @@
           </svg>
         </div>
 
-        <div class="hero-chip">july 14 · she's 15</div>
+        <div class="hero-chip">july 14 · SOPHIEEESTICATED turns 15</div>
         <h1><span class="shimmer-text">happy birthday</span><br>audrey</h1>
         <p class="typewriter" id="typewriter"></p>
 
         <div class="age-reveal">
           <span class="age-num" id="ageNum">0</span>
-          <span class="age-label">years young</span>
+          <span class="age-label">years maldita</span>
         </div>
 
-        <p class="hero-sub">a whole website. just for you. because you deserve more than a text.</p>
+        <p class="hero-sub">a whole website. just for you. because the best VP deserves a proper gift online too.</p>
         <div class="scroll-hint">
           <span>keep scrolling</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
@@ -847,38 +875,38 @@
       <!-- PHOTOS -->
       <section id="photos">
         <div class="card">
-          <p class="section-tag">our moments</p>
-          <h2>polaroids of us 📸</h2>
-          <p class="desc">swipe through — every one of these makes me smile.</p>
+          <p class="section-tag">team snapshots</p>
+          <h2>moments worth remembering 📸</h2>
+          <p class="desc">swipe through — favorites from the journey so far.</p>
           <div class="polaroid-scroll" id="photoGrid">
             <div class="polaroid" data-index="0">
-              <div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">♡</span></div>
-              <p class="polaroid-caption">us</p>
+              <div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div>
+              <p class="polaroid-caption">team</p>
               <input type="file" accept="image/*" aria-label="Photo 1">
             </div>
             <div class="polaroid" data-index="1">
-              <div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">♡</span></div>
-              <p class="polaroid-caption">my fav</p>
+              <div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div>
+              <p class="polaroid-caption">favorites</p>
               <input type="file" accept="image/*" aria-label="Photo 2">
             </div>
             <div class="polaroid" data-index="2">
-              <div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">♡</span></div>
-              <p class="polaroid-caption">core memory</p>
+              <div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div>
+              <p class="polaroid-caption">core moment</p>
               <input type="file" accept="image/*" aria-label="Photo 3">
             </div>
             <div class="polaroid" data-index="3">
-              <div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">♡</span></div>
+              <div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div>
               <p class="polaroid-caption">always</p>
               <input type="file" accept="image/*" aria-label="Photo 4">
             </div>
             <div class="polaroid" data-index="4">
-              <div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">♡</span></div>
-              <p class="polaroid-caption">you &amp; me</p>
+              <div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div>
+              <p class="polaroid-caption">you &amp; the team</p>
               <input type="file" accept="image/*" aria-label="Photo 5">
             </div>
             <div class="polaroid" data-index="5">
-              <div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">♡</span></div>
-              <p class="polaroid-caption">15 ♡</p>
+              <div class="polaroid-photo"><img alt="" hidden><span class="ph-placeholder">★</span></div>
+              <p class="polaroid-caption">15 vibes</p>
               <input type="file" accept="image/*" aria-label="Photo 6">
             </div>
           </div>
@@ -890,33 +918,33 @@
       <!-- LETTERS -->
       <section id="letters">
         <div class="card">
-          <p class="section-tag">letters to you</p>
-          <h2>open when you're ready 💌</h2>
-          <p class="desc">tap each envelope. i wrote these for you.</p>
+          <p class="section-tag">notes for you</p>
+          <h2>open when you're ready</h2>
+          <p class="desc">tap each one for a quick note from the last year.</p>
 
           <div class="envelopes-wrap" id="envelopesWrap"></div>
-          <p class="no-letters-msg" id="noLettersMsg">letters are on their way... ♡</p>
+          <p class="no-letters-msg" id="noLettersMsg">letters are on their way...</p>
 
           <div class="letters-editor" id="lettersEditor">
             <div class="letter-edit-block">
               <label>envelope 1 — title</label>
               <input type="text" id="letterTitle0" placeholder="open on your birthday">
               <label style="margin-top:0.6rem">your words</label>
-              <textarea id="letterBody0" placeholder="dear audrey..."></textarea>
+              <textarea id="letterBody0" placeholder="hey audrey..."></textarea>
             </div>
             <div class="letter-edit-block">
               <label>envelope 2 — title</label>
-              <input type="text" id="letterTitle1" placeholder="open when you miss me">
+              <input type="text" id="letterTitle1" placeholder="open when you need a boost">
               <label style="margin-top:0.6rem">your words</label>
-              <textarea id="letterBody1" placeholder="write something sweet..."></textarea>
+              <textarea id="letterBody1" placeholder="share a quick note..."></textarea>
             </div>
             <div class="letter-edit-block">
               <label>envelope 3 — title</label>
               <input type="text" id="letterTitle2" placeholder="open when you need a smile">
               <label style="margin-top:0.6rem">your words</label>
-              <textarea id="letterBody2" placeholder="one more letter..."></textarea>
+              <textarea id="letterBody2" placeholder="a friendly note..."></textarea>
             </div>
-            <button class="btn btn-pink" id="saveLetters">save letters ♡</button>
+            <button class="btn btn-pink" id="saveLetters">save letters</button>
             <button class="btn btn-purple" id="exportAll">save everything &amp; download for audrey</button>
             <p class="setup-note" style="display:block">drop the downloaded <strong>site-data.js</strong> in this folder, then send her the whole folder.</p>
           </div>
@@ -927,15 +955,15 @@
       <section id="reasons">
         <div class="card">
           <p class="section-tag">why you</p>
-          <h2>reasons you're my favorite human</h2>
-          <p class="desc">tap each one — they're all true.</p>
+          <h2>reasons you're one insanely awesome person</h2>
+          <p class="desc">tap each one — they're all earned.</p>
           <div class="reasons-grid">
-            <div class="reason-card">your laugh</div>
-            <div class="reason-card">how smart you are</div>
-            <div class="reason-card">your kindness</div>
-            <div class="reason-card">the way you lead</div>
-            <div class="reason-card">your smile</div>
-            <div class="reason-card">just... you</div>
+            <div class="reason-card">your focus and devotion to your hobbies and family. family person my goat</div>
+            <div class="reason-card">how smart you are, like who is able to do allat activities and still get high grades? wtf couldn't be me</div>
+            <div class="reason-card">your support</div>
+            <div class="reason-card">the way you bring positive vibes even though MALDITAAA KAYKA!</div>
+            <div class="reason-card">you care for others more than yourself</div>
+            <div class="reason-card">your absolutely loving personality</div>
           </div>
         </div>
       </section>
@@ -943,13 +971,13 @@
       <!-- MEMORIES -->
       <section id="memories">
         <div class="card">
-          <p class="section-tag">us</p>
-          <h2>chapters i don't want to end</h2>
+          <p class="section-tag">highlights</p>
+          <h2>moments that stuck with me</h2>
           <div class="memory-cards">
-            <div class="memory-card"><strong>the late nights</strong><span>projects, fries, and deadlines that somehow felt romantic.</span></div>
-            <div class="memory-card"><strong>inside jokes</strong><span>the ones that still make me laugh when nobody's around.</span></div>
-            <div class="memory-card"><strong>the hard days</strong><span>when you showed up anyway — and reminded me why i believed in us.</span></div>
-            <div class="memory-card"><strong>right now</strong><span>still friends. still laughing. still something between us.</span></div>
+            <div class="memory-card"><strong>the late nights</strong><span>the nights where we would talk all night long without being tired. ALOT OF INSANE CHIKA!!</span></div>
+            <div class="memory-card"><strong>inside jokes</strong><span>the ones that me and you could only understand LMFAOO "Legends lang nakakalam."</span></div>
+            <div class="memory-card"><strong>the hard days</strong><span>when you didn't wanna do this or that but still did it because you're devoted to that thing. gahi kaykag ulo! my goat</span></div>
+            <div class="memory-card"><strong>right now</strong><span>still friends! or "mutuals na colleagues lang" as you say AHAHAHAHA just know that I'm always here for you and will be cheering you on no matter what.</span></div>
           </div>
         </div>
       </section>
@@ -961,22 +989,39 @@
           <h2>press if you know.</h2>
           <div class="heart-ring">
             <div class="heart-pulse"></div>
-            <button class="heart-btn" id="heartBtn" aria-label="Send love">
+            <button class="heart-btn" id="heartBtn" aria-label="Show message">
               <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
             </button>
           </div>
-          <p class="heart-msg" id="heartMsg">tap the heart...</p>
+          <p class="heart-msg" id="heartMsg">tap for one more message...</p>
         </div>
       </section>
 
       <footer>
-        <p class="closing">here's to 15, audrey. here's to us.</p>
-        <p>july 14 · made with love</p>
+        <p class="closing">here's to 15, audrey. here's to the next chapter.</p>
+        <p>july 14 · made with lyen being insanely cool</p>
       </footer>
     </main>
   </div>
 
   <button id="musicBtn" aria-label="Toggle music" title="tap for vibes">🎵</button>
+  
+  <!-- Music Player -->
+  <div id="musicPlayerContainer" style="position: fixed; bottom: 70px; left: 50%; transform: translateX(-50%); z-index: 100; background: rgba(42, 12, 59, 0.95); backdrop-filter: blur(10px); padding: 1rem; border-radius: 12px; display: none; min-width: 280px; border: 1px solid rgba(255, 74, 174, 0.3);">
+    <div style="color: #ffb7d8; font-size: 0.85rem; margin-bottom: 0.75rem; font-weight: 500;">Now Playing:</div>
+    <div id="currentSongName" style="color: #fff3fb; font-size: 0.95rem; margin-bottom: 1rem; word-break: break-word; min-height: 1.2em;">Naiilang</div>
+    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+      <button data-song="naiilang.mp3" class="song-btn active" style="flex: 1; min-width: 60px; padding: 0.5rem; border: 1px solid #ff4aae; background: rgba(255, 74, 174, 0.2); color: #ffb7d8; border-radius: 6px; cursor: pointer; font-size: 0.8rem;">Naiilang</button>
+      <button data-song="kabisado.mp3" class="song-btn" style="flex: 1; min-width: 60px; padding: 0.5rem; border: 1px solid rgba(255, 74, 174, 0.5); background: transparent; color: #ffb7d8; border-radius: 6px; cursor: pointer; font-size: 0.8rem;">Kabisado</button>
+      <button data-song="about-you.mp3" class="song-btn" style="flex: 1; min-width: 60px; padding: 0.5rem; border: 1px solid rgba(255, 74, 174, 0.5); background: transparent; color: #ffb7d8; border-radius: 6px; cursor: pointer; font-size: 0.8rem;">1975</button>
+      <button data-song="the-one-you-love.mp3" class="song-btn" style="flex: 1; min-width: 60px; padding: 0.5rem; border: 1px solid rgba(255, 74, 174, 0.5); background: transparent; color: #ffb7d8; border-radius: 6px; cursor: pointer; font-size: 0.8rem;">Frey</button>
+    </div>
+  </div>
+  
+  <!-- Audio Player -->
+  <audio id="bgMusic" loop style="display:none;">
+    <source src="naiilang.mp3" type="audio/mpeg">
+  </audio>
 
   <script src="site-data.js" onerror="window.SITE_DATA=null"></script>
   <script>
@@ -1144,8 +1189,8 @@
       localStorage.setItem(STORAGE_LETTERS, JSON.stringify(gatherLetters()));
       renderEnvelopes();
       const b = document.getElementById('saveLetters');
-      b.textContent = 'saved! ♡'; b.classList.add('saved');
-      setTimeout(() => { b.textContent = 'save letters ♡'; b.classList.remove('saved'); }, 2000);
+      b.textContent = 'saved!'; b.classList.add('saved');
+      setTimeout(() => { b.textContent = 'save letters'; b.classList.remove('saved'); }, 2000);
     });
 
     document.getElementById('exportAll')?.addEventListener('click', () => {
@@ -1156,7 +1201,7 @@
       a.download = 'site-data.js';
       a.click();
       const b = document.getElementById('exportAll');
-      b.textContent = 'downloaded! add site-data.js to folder ♡';
+      b.textContent = 'downloaded! add site-data.js to folder';
       b.classList.add('saved');
       setTimeout(() => { b.textContent = 'save everything & download for audrey'; b.classList.remove('saved'); }, 3500);
     });
@@ -1178,8 +1223,8 @@
 
     // Typewriter
     const phrases = [
-      "my favorite vp turned 15 today ♡",
-      "and she still has my whole heart...",
+      "Today is your special day! It's your 15th Birthday. ",
+      "this year is all about you, audrey. ",
     ];
     let phraseIdx = 0, charIdx = 0;
     const tw = document.getElementById('typewriter');
@@ -1216,7 +1261,7 @@
     // Floating hearts bg
     function initFloatHearts() {
       const container = document.getElementById('floatHearts');
-      const emojis = ['♡', '✦', '♡', '✧', '♡'];
+      const emojis = ['✿', '✦', '❀', '✧', '✿'];
       const count = window.innerWidth < 480 ? 12 : 20;
       for (let i = 0; i < count; i++) {
         const h = document.createElement('span');
@@ -1230,7 +1275,7 @@
     function spawnHearts(n) {
       for (let i = 0; i < n; i++) {
         const h = document.createElement('span');
-        h.textContent = '♡';
+        h.textContent = '✿';
         h.style.cssText = `position:fixed;left:${Math.random()*100}vw;top:100vh;font-size:${12+Math.random()*16}px;color:#ff6bab;pointer-events:none;z-index:95;animation:floatUp ${2+Math.random()*2}s ease-out forwards`;
         document.body.appendChild(h);
         setTimeout(() => h.remove(), 4000);
@@ -1242,7 +1287,7 @@
       document.getElementById('app').addEventListener('click', (e) => {
         if (e.target.closest('button, input, textarea, .envelope, .key, #musicBtn')) return;
         const h = document.createElement('span');
-        h.textContent = '♡';
+        h.textContent = '✿';
         h.style.cssText = `position:fixed;left:${e.clientX}px;top:${e.clientY}px;font-size:1.2rem;color:#ff6bab;pointer-events:none;z-index:95;transform:translate(-50%,-50%);animation:tapHeart 1s ease-out forwards`;
         document.body.appendChild(h);
         setTimeout(() => h.remove(), 1000);
@@ -1306,44 +1351,63 @@
       else animating = false;
     }
 
-    // Soft ambient music via Web Audio
-    let audioCtx, musicPlaying = false, musicNodes = [];
+    // Music player with song selection
+    let musicPlaying = false;
+    const bgMusic = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicBtn');
+    const musicPlayerContainer = document.getElementById('musicPlayerContainer');
+    const currentSongName = document.getElementById('currentSongName');
+    const songBtns = document.querySelectorAll('.song-btn');
+    
+    const songNames = {
+      'naiilang.mp3': 'Naiilang - Le John',
+      'kabisado.mp3': 'Kabisado - IV of Spades',
+      'about-you.mp3': 'About You - The 1975',
+      'the-one-you-love.mp3': 'The One You Love - Glenn Frey'
+    };
 
     function startMusic() {
-      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       if (musicPlaying) return;
-      const notes = [261.63, 329.63, 392, 523.25, 392, 329.63];
-      let t = audioCtx.currentTime;
-      notes.forEach((freq, i) => {
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.type = 'sine';
-        osc.frequency.value = freq;
-        gain.gain.setValueAtTime(0, t);
-        gain.gain.linearRampToValueAtTime(0.06, t + 0.3);
-        gain.gain.linearRampToValueAtTime(0, t + 1.8);
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        osc.start(t);
-        osc.stop(t + 2);
-        musicNodes.push(osc);
-        t += 0.9;
-      });
+      bgMusic.play().catch(err => console.log('Play failed:', err));
       musicPlaying = true;
-      document.getElementById('musicBtn').classList.add('playing');
-      setTimeout(() => { if (musicPlaying) startMusic(); }, notes.length * 900 + 500);
+      musicBtn.classList.add('playing');
     }
 
     function stopMusic() {
+      bgMusic.pause();
       musicPlaying = false;
-      musicNodes.forEach(n => { try { n.stop(); } catch {} });
-      musicNodes = [];
-      document.getElementById('musicBtn').classList.remove('playing');
+      musicBtn.classList.remove('playing');
     }
 
-    document.getElementById('musicBtn').addEventListener('click', () => {
-      if (musicPlaying) stopMusic();
-      else startMusic();
+    function changeSong(src) {
+      bgMusic.src = src;
+      currentSongName.textContent = songNames[src] || src;
+      songBtns.forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`[data-song="${src}"]`).classList.add('active');
+      if (musicPlaying) {
+        bgMusic.play().catch(err => console.log('Play failed:', err));
+      }
+    }
+
+    musicBtn.addEventListener('click', () => {
+      musicPlayerContainer.style.display = musicPlayerContainer.style.display === 'none' ? 'block' : 'none';
+      if (musicPlayerContainer.style.display !== 'none' && !musicPlaying) {
+        startMusic();
+      }
+    });
+
+    songBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        changeSong(btn.dataset.song);
+      });
+    });
+
+    // Auto-play on page load
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        startMusic();
+        musicPlayerContainer.style.display = 'block';
+      }, 500);
     });
 
     // Init
@@ -1370,7 +1434,7 @@
 
       const heartBtn = document.getElementById('heartBtn');
       const heartMsg = document.getElementById('heartMsg');
-      const msgs = ['yeah... me too.', 'some things never leave.', 'still my favorite person.', 'always rooting for us.', 'you know where to find me.'];
+      const msgs = ['you’ve got this.', 'always rooting for you.', 'you make work feel brighter.', 'keep being your sharp self.', 'cheering from the sidelines.'];
       let mi = 0, tapped = false;
 
       heartBtn.addEventListener('click', () => {
