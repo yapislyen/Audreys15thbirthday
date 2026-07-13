@@ -47,13 +47,25 @@
     /* ===== LOCK SCREEN (iPhone style) ===== */
     #lockScreen {
       position: fixed; inset: 0; z-index: 2000;
-      display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
       padding: calc(2.5rem + var(--safe-t)) 1.25rem calc(1.5rem + var(--safe-b));
       background:
         radial-gradient(ellipse 120% 80% at 50% 0%, rgba(255, 74, 174, 0.3), transparent 55%),
         radial-gradient(ellipse 80% 60% at 80% 100%, rgba(139, 59, 153, 0.32), transparent),
         linear-gradient(180deg, #260a2c 0%, #120517 100%);
       transition: opacity 0.7s ease, transform 0.7s ease;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    @media (max-height: 800px) {
+      #lockScreen {
+        padding: calc(1.5rem + var(--safe-t)) 1.25rem calc(1.5rem + var(--safe-b));
+      }
+      
+      .lock-mid {
+        gap: 1rem;
+      }
     }
 
     #lockScreen::before {
@@ -800,9 +812,9 @@
       <div class="lock-avatar">🎂</div>
       <p class="lock-title">a surprise for audrey</p>
       <div class="lock-flowers"><span>💐</span><span>🌸</span><span>✨</span></div>
-      <p class="lock-hint">enter passcode</p>
+      <p class="lock-hint">her birthday or her lucky number 🍀</p>
       <div class="passcode-dots" id="passDots"><span></span><span></span><span></span><span></span></div>
-      <p class="passcode-error" id="passError">nope — try your birthday 🎂</p>
+      <p class="passcode-error" id="passError">nope — try 0714 or 5555 💕</p>
       <div class="keypad" id="keypad">
         <button class="key" data-key="1"><span class="key-num">1</span></button>
         <button class="key" data-key="2"><span class="key-num">2</span><span class="key-sub">abc</span></button>
@@ -1041,7 +1053,7 @@
 
   <script src="site-data.js" onerror="window.SITE_DATA=null"></script>
   <script>
-    const PASSCODE = '0714';
+    const PASSCODES = ['0714', '5555'];
     const isSetup = new URLSearchParams(location.search).has('setup');
     const STORAGE_LETTERS = 'audrey_letters_v2';
     const STORAGE_PHOTOS = 'audrey_photos_v2';
@@ -1102,7 +1114,7 @@
       entered += key;
       updateDots();
       if (entered.length === 4) {
-        if (entered === PASSCODE) {
+        if (PASSCODES.includes(entered)) {
           document.getElementById('lockScreen').classList.add('hidden');
           setTimeout(showWelcomeThenApp, 300);
         } else shakeDots();
