@@ -1082,8 +1082,15 @@
 
   <button id="musicBtn" aria-label="Toggle music" title="tap for vibes">🎵</button>
   
+  <!-- Fullscreen Image Modal -->
+  <div id="imageModal" style="position: fixed; inset: 0; z-index: 999; background: rgba(0, 0, 0, 0.95); display: none; flex-direction: column; align-items: center; justify-content: center; padding: 1rem;">
+    <img id="modalImage" style="max-width: 90%; max-height: 85%; object-fit: contain;" alt="Full size image">
+    <button id="closeModal" style="position: absolute; top: 1rem; right: 1.5rem; background: none; border: none; color: #fff; font-size: 2rem; cursor: pointer; padding: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">✕</button>
+  </div>
+
   <!-- Music Player -->
   <div id="musicPlayerContainer" style="position: fixed; bottom: 70px; left: 50%; transform: translateX(-50%); z-index: 100; background: rgba(42, 12, 59, 0.95); backdrop-filter: blur(10px); padding: 1rem; border-radius: 12px; display: none; min-width: 280px; border: 1px solid rgba(255, 74, 174, 0.3);">
+    <div style="color: #ffb7d8; font-size: 0.75rem; margin-bottom: 0.5rem; opacity: 0.7;">tap the music icon to hide</div>
     <div style="color: #ffb7d8; font-size: 0.85rem; margin-bottom: 0.75rem; font-weight: 500;">Now Playing:</div>
     <div id="currentSongName" style="color: #fff3fb; font-size: 0.95rem; margin-bottom: 1rem; word-break: break-word; min-height: 1.2em;">Naiilang</div>
     <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
@@ -1292,10 +1299,22 @@
       memorialbleFiles.forEach((filename, idx) => {
         const img = document.querySelector(`[data-album="memorable"][data-index="${idx}"] img`);
         if (img) {
-          img.src = `photos/${filename}`;
-          img.hidden = false;
-          const ph = document.querySelector(`[data-album="memorable"][data-index="${idx}"] .ph-placeholder`);
-          if (ph) ph.style.display = 'none';
+          const path = `photos/${filename}`;
+          // Try fetch first (works better with relative paths)
+          fetch(path).then(r => r.blob()).then(blob => {
+            img.src = URL.createObjectURL(blob);
+            img.hidden = false;
+            img.style.cursor = 'pointer';
+            const ph = document.querySelector(`[data-album="memorable"][data-index="${idx}"] .ph-placeholder`);
+            if (ph) ph.style.display = 'none';
+          }).catch(() => {
+            // Fallback to direct path
+            img.src = path;
+            img.hidden = false;
+            img.style.cursor = 'pointer';
+            const ph = document.querySelector(`[data-album="memorable"][data-index="${idx}"] .ph-placeholder`);
+            if (ph) ph.style.display = 'none';
+          });
         }
       });
       
@@ -1303,16 +1322,53 @@
       herStoryFiles.forEach((filename, idx) => {
         const img = document.querySelector(`[data-album="audrey"][data-index="${idx}"] img`);
         if (img) {
-          img.src = `photos/${filename}`;
-          img.hidden = false;
-          const ph = document.querySelector(`[data-album="audrey"][data-index="${idx}"] .ph-placeholder`);
-          if (ph) ph.style.display = 'none';
+          const path = `photos/${filename}`;
+          // Try fetch first (works better with relative paths)
+          fetch(path).then(r => r.blob()).then(blob => {
+            img.src = URL.createObjectURL(blob);
+            img.hidden = false;
+            img.style.cursor = 'pointer';
+            const ph = document.querySelector(`[data-album="audrey"][data-index="${idx}"] .ph-placeholder`);
+            if (ph) ph.style.display = 'none';
+          }).catch(() => {
+            // Fallback to direct path
+            img.src = path;
+            img.hidden = false;
+            img.style.cursor = 'pointer';
+            const ph = document.querySelector(`[data-album="audrey"][data-index="${idx}"] .ph-placeholder`);
+            if (ph) ph.style.display = 'none';
+          });
         }
       });
     }
 
-    // Load photos on page load
-    window.addEventListener('load', loadPhotosFromFolder);
+    // Load photos and add click handlers
+    window.addEventListener('load', () => {
+      loadPhotosFromFolder();
+      
+      // Add fullscreen click handlers to all images
+      setTimeout(() => {
+        document.querySelectorAll('.polaroid img:not([hidden])').forEach(img => {
+          img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modalImg.src = img.src;
+            modal.style.display = 'flex';
+          });
+        });
+      }, 500);
+    });
+    
+    // Close fullscreen image
+    document.getElementById('closeModal')?.addEventListener('click', () => {
+      document.getElementById('imageModal').style.display = 'none';
+    });
+    document.getElementById('imageModal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'imageModal') {
+        document.getElementById('imageModal').style.display = 'none';
+      }
+    });
 
     function renderPhotos() {
       const photos = loadPhotos();
