@@ -1294,27 +1294,32 @@
       'f6fc3c88-fa3f-4323-8e59-2cc153317a41.jpg'
     ];
 
+    function addClickHandler(img) {
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        modalImg.src = img.src;
+        modal.style.display = 'flex';
+      });
+    }
+
     function loadPhotosFromFolder() {
       // Load memorable photos
       memorialbleFiles.forEach((filename, idx) => {
         const img = document.querySelector(`[data-album="memorable"][data-index="${idx}"] img`);
         if (img) {
-          const path = `photos/${filename}`;
-          // Try fetch first (works better with relative paths)
-          fetch(path).then(r => r.blob()).then(blob => {
-            img.src = URL.createObjectURL(blob);
+          img.src = `photos/${filename}`;
+          img.onload = () => {
             img.hidden = false;
             img.style.cursor = 'pointer';
+            addClickHandler(img);
             const ph = document.querySelector(`[data-album="memorable"][data-index="${idx}"] .ph-placeholder`);
             if (ph) ph.style.display = 'none';
-          }).catch(() => {
-            // Fallback to direct path
-            img.src = path;
-            img.hidden = false;
-            img.style.cursor = 'pointer';
-            const ph = document.querySelector(`[data-album="memorable"][data-index="${idx}"] .ph-placeholder`);
-            if (ph) ph.style.display = 'none';
-          });
+          };
+          img.onerror = () => {
+            img.hidden = true;
+          };
         }
       });
       
@@ -1322,42 +1327,24 @@
       herStoryFiles.forEach((filename, idx) => {
         const img = document.querySelector(`[data-album="audrey"][data-index="${idx}"] img`);
         if (img) {
-          const path = `photos/${filename}`;
-          // Try fetch first (works better with relative paths)
-          fetch(path).then(r => r.blob()).then(blob => {
-            img.src = URL.createObjectURL(blob);
+          img.src = `photos/${filename}`;
+          img.onload = () => {
             img.hidden = false;
             img.style.cursor = 'pointer';
+            addClickHandler(img);
             const ph = document.querySelector(`[data-album="audrey"][data-index="${idx}"] .ph-placeholder`);
             if (ph) ph.style.display = 'none';
-          }).catch(() => {
-            // Fallback to direct path
-            img.src = path;
-            img.hidden = false;
-            img.style.cursor = 'pointer';
-            const ph = document.querySelector(`[data-album="audrey"][data-index="${idx}"] .ph-placeholder`);
-            if (ph) ph.style.display = 'none';
-          });
+          };
+          img.onerror = () => {
+            img.hidden = true;
+          };
         }
       });
     }
 
-    // Load photos and add click handlers
+    // Load photos on page load
     window.addEventListener('load', () => {
       loadPhotosFromFolder();
-      
-      // Add fullscreen click handlers to all images
-      setTimeout(() => {
-        document.querySelectorAll('.polaroid img:not([hidden])').forEach(img => {
-          img.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            modalImg.src = img.src;
-            modal.style.display = 'flex';
-          });
-        });
-      }, 500);
     });
     
     // Close fullscreen image
